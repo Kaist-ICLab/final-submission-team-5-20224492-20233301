@@ -3,7 +3,7 @@
 “How many shots are you?”: A Just-in-Time Intervention System to Prevent Overdrinking based on Soju-Glassware Motion Detection  <br>
 
 - [Subin Park](https://github.com/twinklesu) 
-- Injae Song
+- [Injae Song](https://github.com/neverdiesong)
 
 
 ## Folder structure
