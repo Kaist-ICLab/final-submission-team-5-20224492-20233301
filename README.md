@@ -5,11 +5,6 @@
 - [Subin Park](https://github.com/twinklesu) 
 - Injae Song
 
-## 2 versions 
-1. In-lab shot detection
-  - To run the system in in-lab condition, execute `in_lab_shot_detection.ino`. It will shows you the limit number, the results of motion detection, and drinking status on your 'Serial monitor'.
-2. Stand alone shot detection
- - To run the system wirelessly, execute `stand_alone_shot_detection.ino`. You need traffic light LED for this, and please refer to 'Hardware connection' section in this README to connect the LED. 
 
 ## Folder structure
 ```
@@ -30,9 +25,13 @@
 └── model_build_colab.ipynb           # Colab code to build model
 ```
 
-## Hardware connection
-1. Connect traffic light LED to Arduino
-  <img width="1439" alt="image" src="https://github.com/twinklesu/howManyShotsAreYou/assets/68603692/e83f2cfa-a089-4707-8848-07b6edd61e80">
-2. Attach Arduino on soju-glassware as the following picture
-  <img width="1411" alt="image" src="https://github.com/twinklesu/howManyShotsAreYou/assets/68603692/596c881e-a9ec-409c-b58d-76f7198ecce8">
-3. For `in lab shot detection`, connect the Arduino with a computer through USB wire. For `stand alone shot detection`, connect the Arduino with battery. 
+## 2 versions 
+1. In-lab shot detection
+  - To run the system in in-lab condition, execute `in_lab_shot_detection.ino` with wire connection to PC. It will shows you the limit number, the results of motion detection, and drinking status on your 'Serial monitor'.
+2. Stand alone shot detection
+ - To run the system wirelessly, execute `stand_alone_shot_detection.ino`. Follow the instruction to connect LED. 
+  1. Connect traffic light LED to Arduino.
+    <img width="1439" alt="image" src="https://github.com/twinklesu/howManyShotsAreYou/assets/68603692/e83f2cfa-a089-4707-8848-07b6edd61e80">
+  2. Attach Arduino on soju-glassware as the following picture.
+    <img width="1411" alt="image" src="https://github.com/twinklesu/howManyShotsAreYou/assets/68603692/596c881e-a9ec-409c-b58d-76f7198ecce8">
+  3. Connect the Arduino with battery.
