@@ -164,27 +164,7 @@ void setup() {
 
   // Initialize button for getting limit number
   initializeShield();
-
-  // ==============BEGIN: blink LED to let user start=============
-  randomSeed(analogRead(A0));
-  analogWrite(A6, 0); // GREEN
-  analogWrite(A7, 0); // YELLOW
-  analogWrite(A2, 0); // RED
-  for (int i=0; i<3; i++) {
-    analogWrite(A2, 0); // RED
-    analogWrite(A6, 255); // GREEN
-    delay(100);
-    analogWrite(A6, 0); // GREEN
-    analogWrite(A7, 255); // YELLOW
-    delay(100);
-    analogWrite(A7, 0); // YELLOW
-    analogWrite(A2, 255); // RED
-    delay(100);
-  }
-  analogWrite(A6, 0); // GREEN
-  analogWrite(A7, 0); // YELLOW
-  analogWrite(A2, 0); // RED
-  // ============= END: blink LED to let user start ==============
+  Serial.println("Please set limit number through button!");
 } // end setup()
 
 // ***************************
@@ -206,29 +186,11 @@ void loop() {
           Serial.print("Limit: ");
           Serial.println(limitNum);
           Serial.println("===================");
-          // blink LED to let user start of the inference
-          for (int i=0; i<2; i++) {
-            analogWrite(A6, 255); // GREEN
-            analogWrite(A7, 255); // YELLOW
-            analogWrite(A2, 255); // RED
-            delay(200);
-            analogWrite(A6, 0); // GREEN
-            analogWrite(A7, 0); // YELLOW
-            analogWrite(A2, 0); // RED
-            delay(200);
-          }
           isInputDone = true;
       } else {
         // increase limit number
         limitNum += 1;
-        // blink LED to let user increase of limit number 
-        analogWrite(A6, 255); // GREEN
-        analogWrite(A7, 255); // YELLOW
-        analogWrite(A2, 255); // RED
-        delay(10);
-        analogWrite(A6, 0); // GREEN
-        analogWrite(A7, 0); // YELLOW
-        analogWrite(A2, 0); // RED
+        Serial.println("Button clicked");
       }
     }
   }
@@ -323,69 +285,6 @@ void loop() {
         Serial.print(percentage, 2);
         Serial.println("%");
         Serial.println("==========");
-        // Setting LED
-        if (percentage >= 110) {
-          delay(500);
-          for (int i=0; i<5; i++) {
-            analogWrite(A6, 0); // GREEN
-            analogWrite(A7, 0); // YELLOW
-            analogWrite(A2, 0); // RED
-            delay(100);
-            analogWrite(A6, 0); // GREEN
-            analogWrite(A7, 0); // YELLOW
-            analogWrite(A2, 255); // RED
-            delay(100);
-          }
-        } else if (percentage >= 100){
-          analogWrite(A6, 0); // GREEN
-          analogWrite(A7, 0); // YELLOW
-          analogWrite(A2, 255); // RED
-        } else if (percentage >= 90){
-          analogWrite(A6, 0); // GREEN
-          analogWrite(A7, 255); // YELLOW
-          analogWrite(A2, 0); // RED
-        } else if (percentage >= 80) {
-          analogWrite(A6, 0); // GREEN
-          analogWrite(A7, 200); // YELLOW
-          analogWrite(A2, 0); // RED
-        } else if (percentage >= 70) {
-          analogWrite(A6, 0); // GREEN
-          analogWrite(A7, 150); // YELLOW
-          analogWrite(A2, 0); // RED
-        } else if (percentage >= 60) {
-          analogWrite(A6, 0); // GREEN
-          analogWrite(A7, 100); // YELLOW
-          analogWrite(A2, 0); // RED
-        } else if (percentage >= 50) {
-          analogWrite(A6, 0); // GREEN
-          analogWrite(A7, 50); // YELLOW
-          analogWrite(A2, 0); // RED
-        } else if (percentage >= 40) {
-          analogWrite(A6, 255); // GREEN
-          analogWrite(A7, 0); // YELLOW
-          analogWrite(A2, 0); // RED
-        } else if (percentage >= 30) {
-          analogWrite(A6, 200); // GREEN
-          analogWrite(A7, 0); // YELLOW
-          analogWrite(A2, 0); // RED
-        } else if (percentage >= 20) {
-          analogWrite(A6, 150); // GREEN
-          analogWrite(A7, 0); // YELLOW
-          analogWrite(A2, 0); // RED
-        } else if (percentage >= 10) {
-          analogWrite(A6, 100); // GREEN
-          analogWrite(A7, 0); // YELLOW
-          analogWrite(A2, 0); // RED
-        } else if (percentage >= 1) {
-          analogWrite(A6, 50); // GREEN
-          analogWrite(A7, 0); // YELLOW
-          analogWrite(A2, 0); // RED
-        } else {
-          analogWrite(A6, 0); // GREEN
-          analogWrite(A7, 0); // YELLOW
-          analogWrite(A2, 0); // RED
-        }
-        delay(1000);
       }
       // ============ END: display drinking status for JIT intervention ============== 
       
